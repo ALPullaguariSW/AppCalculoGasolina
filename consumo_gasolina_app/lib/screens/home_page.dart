@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../controllers/calculo_controller.dart';
-import '../models/consumo_model.dart';
+
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -44,17 +46,17 @@ Velocidad Media: ${consumo.velocidadMediaMs.toStringAsFixed(2)} m/s
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Control de Consumo de Gasolina'),
+        title: const Text('Control de Consumo de Gasolina'),
         backgroundColor: Colors.indigo,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              const Text(
                 'Ingrese los datos:',
                 style: TextStyle(
                   fontSize: 20,
@@ -62,7 +64,7 @@ Velocidad Media: ${consumo.velocidadMediaMs.toStringAsFixed(2)} m/s
                   color: Colors.indigo,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildTextField(
                 label: 'Kilómetros Recorridos',
                 onSaved: (value) => km = double.parse(value!),
@@ -88,25 +90,25 @@ Velocidad Media: ${consumo.velocidadMediaMs.toStringAsFixed(2)} m/s
                 onSaved: (value) => minutos = int.parse(value!),
                 keyboardType: TextInputType.number,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: calcular,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                 ),
-                child: Text(
+                child: const Text(
                   'Calcular',
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               if (resultado.isNotEmpty)
                 Card(
                   color: Colors.white,
                   elevation: 4,
                   child: Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Text(
                       resultado,
                       style: TextStyle(
@@ -133,8 +135,8 @@ Velocidad Media: ${consumo.velocidadMediaMs.toStringAsFixed(2)} m/s
       child: TextFormField(
         decoration: InputDecoration(
           labelText: label,
-          border: OutlineInputBorder(),
-          focusedBorder: OutlineInputBorder(
+          border: const OutlineInputBorder(),
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.indigo, width: 2),
           ),
         ),
